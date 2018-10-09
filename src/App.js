@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import {
   BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Link,
   NavLink
@@ -13,15 +14,17 @@ import "./App.css";
 class App extends Component {
   render() {
     return (
-      <Router>
+      <BrowserRouter>
         <div className="App">
-          <NavLink to={"/"}>/</NavLink>
+          <NavLink to="/" activeClassName="selected">
+            /Home
+          </NavLink>
           <br />
-          <NavLink to={"/notre-histoire"}>/notre-histoire</NavLink>
+          <NavLink to="/History">/notre-histoire</NavLink>
           <Route exact path="/" component={Home} />
-          <Route exact path="/notre-histoire" component={History} />
+          <Route exact path="/History" component={History} />
         </div>
-      </Router>
+      </BrowserRouter>
     );
   }
 }
